@@ -1,0 +1,68 @@
+
+вот ссылка на то что дает jquery
+https://jqueryui.com/dialog/#animated
+
+
+
+<!-- Подключить стили -->
+<link href="css/jquery-ui.css" rel="stylesheet">
+
+<!-- Картинки положить рядом с ксс --> 
+
+
+<!--.кнопка по нажатию на которыую будет попап --> 
+<button id="opener" class="mybutton">Задать вопрос</button>
+
+
+<!-- Это сам попап с формой мочто что угодно -->
+
+<div id="dialog" title="Задать вопрос">
+
+    <form id="order" action="mail.php" method="post">
+
+        <label for="name">Имя</label>
+
+        <input type="text" name="name" id="name" minlength="3" required>
+
+        <label for="email">E-mail</label>
+
+        <input type="text" name="email" id="email" required>
+
+        <label for="phone">Телефон</label>
+
+        <input type="text" name="phone" id="phone" required>
+        <br> <br>
+        <textarea name="question" id="" cols="30" rows="5"></textarea>
+
+        <input type="submit" value="Отправить" class="mybutton">
+    </form>
+	
+</div>
+
+
+
+<!-- Подключить скрипты -->
+ <script src="jquery-1.10.2.js"></script>
+ <script src="jquery-ui.js"></script>
+
+ <!-- Активировать -->
+
+<script>
+  $(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  });
+  </script>
